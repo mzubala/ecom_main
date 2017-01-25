@@ -1,0 +1,29 @@
+version: '2'
+services:
+  db:
+    image: mysql
+    environment:
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-web
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ./ecom:/ecom
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    links:
+      - db
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile-test
+    volumes:
+      - ./ecom_test:/ecom_test
+    depends_on:
+      - web
+    ports:
+      []

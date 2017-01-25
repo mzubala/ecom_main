@@ -1,0 +1,5 @@
+.idea
+ecom/.idea
+ecom_test/.idea
+ecom/log/*
+ecom_test/tmp/*

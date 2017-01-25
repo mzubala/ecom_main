@@ -3,3 +3,5 @@ ecom/.idea
 ecom_test/.idea
 ecom/log/*
 ecom_test/tmp/*
+ecom_test/log/*
+ecom/tmp/*

@@ -14,8 +14,12 @@ module EcomTest
 
   STRATEGIES = ["ui", "api"]
 
-  def cart_feature
-    @cart_feature ||= create_feature("cart")
+  def order_feature
+    @order_feature ||= create_feature("order")
+  end
+
+  def api_client
+    @client ||= Api::Client.new
   end
 
   private

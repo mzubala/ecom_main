@@ -1,14 +1,10 @@
 require "active_support"
 require "active_support/core_ext/string"
 require 'faraday'
-require "ecom_test/version"
-require "ecom_test/ui/helpers"
-require "ecom_test/model/product"
-require "ecom_test/model/cart"
-require "ecom_test/ui/cart_feature"
-require "ecom_test/api/client"
-require "ecom_test/api/helpers"
-require "ecom_test/api/cart_feature"
+require 'require_all'
+
+require_rel 'ecom_test'
+
 
 module EcomTest
 
@@ -20,6 +16,10 @@ module EcomTest
 
   def api_client
     @client ||= Api::Client.new
+  end
+
+  def clear_db
+    api_client.clear_db
   end
 
   private

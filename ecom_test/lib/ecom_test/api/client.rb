@@ -41,6 +41,13 @@ module EcomTest
         get("/stock_locations")["stock_locations"].first["id"]
       end
 
+      def clear_db
+        response = connection.delete('/db') do |request|
+          add_headers(request)
+        end
+        JSON.parse(response.body)
+      end
+
       private
 
       API_KEY = "111222333444555666777888999"

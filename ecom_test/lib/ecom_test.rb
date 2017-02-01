@@ -2,6 +2,8 @@ require "active_support"
 require "active_support/core_ext/string"
 require 'faraday'
 require 'require_all'
+require 'watir-webdriver'
+require 'rspec'
 
 require_rel 'ecom_test'
 
@@ -29,7 +31,7 @@ module EcomTest
   end
 
   def feature_class(feature)
-    "#{strategy}::#{feature.camelize}Feature".constantize
+    "EcomTest::#{strategy}::#{feature.camelize}Feature".constantize
   end
 
   def strategy

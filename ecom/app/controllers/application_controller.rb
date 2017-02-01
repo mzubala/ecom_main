@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     Spree::Variant.with_deleted.map { |v| v.destroy! }
     Spree::StockItem.all.map { |si| si.destroy! }
     Spree::Taxonomy.all.map { |t| t.destroy! }
-    Spree::Order.all.map { |o| o.destory! }
+    Spree::Order.all.map { |o| o.destroy! }
 
     render json: {status: 'done'}
   end

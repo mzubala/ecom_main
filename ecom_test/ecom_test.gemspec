@@ -32,5 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "selenium-webdriver", "~> 2.53.0"
   spec.add_development_dependency "activesupport", "~> 4.2.6"
   spec.add_development_dependency "faraday", "~> 0.11.0"
+  spec.add_development_dependency "watir-webdriver", "~> 0.9.9"
   spec.add_development_dependency "require_all"
 end

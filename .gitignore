@@ -5,3 +5,4 @@ ecom/log/*
 ecom_test/tmp/*
 ecom_test/log/*
 ecom/tmp/*
+ecom/public/spree/*

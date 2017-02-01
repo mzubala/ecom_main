@@ -11,3 +11,22 @@ Spree::Core::Engine.load_seed if defined?(Spree::Core)
 Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
 
 Spree::User.first.update(spree_api_key: '111222333444555666777888999')
+
+Spree::Sample.load_sample("payment_methods")
+Spree::Sample.load_sample("shipping_categories")
+Spree::Sample.load_sample("shipping_methods")
+Spree::Sample.load_sample("tax_categories")
+Spree::Sample.load_sample("tax_rates")
+
+
+country = Spree::Country.find_by(iso: 'US')
+location = Spree::StockLocation.first_or_create!(name: 'default',
+  address1: 'Example Street',
+  city: 'City',
+  zipcode: '12345',
+  country: country,
+  state: country.states.first)
+location.active = true
+location.save!
+
+

@@ -42,6 +42,13 @@ module EcomTest
         post("/orders", payload)
       end
 
+      def create_line_item(order_number, variant_id, count)
+        payload = {
+          line_item:  {variant_id: variant_id, quantity: count}
+        }
+        post("/orders/#{order_number}/line_items", payload)
+      end
+
       def get_order(number)
         get("/orders/#{number}")
       end
@@ -55,6 +62,10 @@ module EcomTest
           add_headers(request)
         end
         JSON.parse(response.body)
+      end
+
+      def search(query)
+        get("/products?q[name_cont]=#{query}")
       end
 
       private
@@ -87,7 +98,7 @@ module EcomTest
       end
 
       def endpoint(url)
-        "/api/v1" + url + ".json"
+        "/api/v1" + url
       end
 
       def add_headers(request)

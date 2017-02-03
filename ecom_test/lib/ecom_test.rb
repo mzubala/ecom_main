@@ -16,6 +16,10 @@ module EcomTest
     @order_feature ||= create_feature("order")
   end
 
+  def catalog_feature
+    @catalog_feature ||= create_feature("catalog")
+  end
+
   def api_client
     @client ||= Api::Client.new
   end

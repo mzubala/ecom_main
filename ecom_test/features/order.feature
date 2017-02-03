@@ -4,7 +4,7 @@ Feature: Placing orders
   As a Shopper
   I want to place an order
 
-  Scenario:
+  Scenario: The one where user adds several items to the cart
     Given the shop offers:
       | name   |
       | Gloves |

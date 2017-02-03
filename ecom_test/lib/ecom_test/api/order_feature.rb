@@ -21,6 +21,14 @@ module EcomTest
         EcomTest::Model::Order.new(line_items, order["total"])
       end
 
+      def remove_product_from_cart(product_name)
+        order = api_client.get_order(@order["number"])
+        line_item = order["line_items"].find do |line_item|
+          line_item["variant"]["name"] == product_name
+        end
+        api_client.remove_line_item(@order["number"], line_item["id"])
+      end
+
       private
 
       def api_client

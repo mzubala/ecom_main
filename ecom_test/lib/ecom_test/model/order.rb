@@ -9,7 +9,7 @@ module EcomTest
       end
 
       def expect_products(products)
-        expect(order_items).to include(*products.map(&:symbolize_keys))
+        expect(order_items).to contain_exactly(*products.map(&:symbolize_keys))
       end
 
     end

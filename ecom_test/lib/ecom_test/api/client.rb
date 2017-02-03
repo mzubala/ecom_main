@@ -44,7 +44,7 @@ module EcomTest
 
       def create_line_item(order_number, variant_id, count)
         payload = {
-          line_item:  {variant_id: variant_id, quantity: count}
+          line_item: {variant_id: variant_id, quantity: count}
         }
         post("/orders/#{order_number}/line_items", payload)
       end
@@ -68,6 +68,10 @@ module EcomTest
         get("/products?q[name_cont]=#{query}")
       end
 
+      def remove_line_item(order_number, line_item_id)
+        delete("/orders/#{order_number}/line_items/#{line_item_id}")
+      end
+
       private
 
       API_KEY = "111222333444555666777888999"
@@ -81,6 +85,12 @@ module EcomTest
           add_headers(request)
         end
         JSON.parse(response.body)
+      end
+
+      def delete(url)
+        response = connection.delete(endpoint(url)) do |request|
+          add_headers(request)
+        end
       end
 
       def post(url, hash)
